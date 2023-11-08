@@ -54,19 +54,17 @@ int main() {
             cin >> a[i];
             sum+=a[i];
             pref[i]=pref[i-1];
-            pref[i]+=a[i];
+            pref[i]+=a[i]; //124ms
+            // pref[i]=sum; //140ms
         }
         for(int i = 0; i < q; i++){
             long long l,r,k;
             cin >> l >> r >> k;
             long long ans = pref[n]-(pref[r]-pref[l-1])+k*(r-l+1);
-            if(ans%2==1){
+            if(ans%2==1)
                 cout<<"YES\n";
-            }
             else
-            {
                 cout<<"NO\n";
-            }
         }
     }
 }
